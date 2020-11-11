@@ -13,6 +13,13 @@
     <% flash.each do |key, value| %>
       <%= content_tag(:div, value, class: "#{key}") %>
     <% end %>
+    <% if logged_in? %>
+      <%= link_to "Profile", album_path(current_album.id) %>
+      <%= link_to "Logout", session_path(current_album.id), method: :delete %>
+    <% else %>
+      <%= link_to "Sign up", new_album_path %>
+      <%= link_to "Login", new_session_path %>
+    <% end %>
     <%= yield %>
   </body>
 </html>
