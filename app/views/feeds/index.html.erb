@@ -13,7 +13,7 @@
   <tbody>
     <% @feeds.each do |feed| %>
       <tr>
-        <td><%= image_tag feed.image.url%></td>
+        <td><%= image_tag feed.image.url %></td>
         <td><%= feed.content %></td>
         <td><%= link_to '詳細', feed %></td>
         <td><%= link_to '編集', edit_feed_path(feed) %></td>

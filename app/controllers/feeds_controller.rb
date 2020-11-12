@@ -1,22 +1,20 @@
 class FeedsController < ApplicationController
-  before_action :set_feed, only: [:show, :edit, :update, :destroy]
+  before_action :set_feed, only: [:show, :edit, :confirm, :destroy,]
 
   def index
     @feeds = Feed.all
   end
 
-  def show
-  end
-
   def new
-    @feed = Feed.new
-  end
-
-  def edit
+    if params[:back]
+      @feed = Feed.new(feed_params)
+    else
+      @feed = Feed.new
+    end
   end
 
   def create
-    @feed = Feed.new(feed_params)
+    @feed = current_album.feeds.build(feed_params)
 
     respond_to do |format|
       if @feed.save
@@ -27,6 +25,18 @@ class FeedsController < ApplicationController
         format.json { render json: @feed.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def show
+  end
+
+  def edit
+  end
+
+  def confirm
+    @feed = Feed.new(feed_params)
+    @feed = current_album.feeds.build(feed_params)
+    render :new if @feed.invalid?
   end
 
   def update
