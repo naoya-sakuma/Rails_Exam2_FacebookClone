@@ -2,7 +2,8 @@
 
 <p>現在の画像</p>
 <%= image_tag @feed.image.url %>
-<p>現在の投稿：<%= @feed.content %></p>
+<p>現在の投稿</p>
+<%= @feed.content %>
 
 <%= render 'form', feed: @feed %>
 

@@ -1,5 +1,5 @@
 class FeedsController < ApplicationController
-  before_action :set_feed, only: [:show, :edit, :confirm, :destroy,]
+  before_action :set_feed, only: [:show, :edit, :update, :destroy,]
 
   def index
     @feeds = Feed.all
@@ -34,7 +34,7 @@ class FeedsController < ApplicationController
   end
 
   def confirm
-    @feed = Feed.new(feed_params)
+    #@feed = Feed.new(feed_params)
     @feed = current_album.feeds.build(feed_params)
     render :new if @feed.invalid?
   end
@@ -60,7 +60,6 @@ class FeedsController < ApplicationController
   end
 
   private
-
     def set_feed
       @feed = Feed.find(params[:id])
     end
