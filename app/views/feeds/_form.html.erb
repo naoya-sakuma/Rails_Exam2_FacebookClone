@@ -1,3 +1,4 @@
+<body class="feed_form_body">
 <%= form_with(model: @feed, local: true ,url: choose_new_or_edit ) do |form| %>
   <% if feed.errors.any? %>
     <div id="error_explanation">
@@ -12,19 +13,24 @@
   <% end %>
 
   <div class="field">
-    <p>
-    <%= form.label :image, "画像の投稿" %>
-    <%= image_tag(@feed.image.url) if @feed.image && @feed.image.url %>
-    <%= form.file_field :image %>
-    <%= form.hidden_field :image_cache %>
+    <p class="feed_form_posted">
+      <%= (form.label :image, "現在の画像：") if @feed.image && @feed.image.url %>
+      <%= image_tag(@feed.image.url) if @feed.image && @feed.image.url %>
     </p>
-    <p>
-    <%= form.label :content, "内容の投稿" %>
-    <%= form.text_field :content %>
+    <p class="feed_form_posted">
+      <%= (form.label :content, "現在の内容：") if @feed.content %>
+      <%= @feed.content %>
     </p>
+    <h3 class="feed_form_h3">新しい投稿内容</h3>
+    <p class="feed_form_posting">
+      <%= form.file_field :image %>
+      <%= form.hidden_field :image_cache %>
+    </p>
+    <p class="feed_form_posting">
+      <%= form.label :content, "内容" %>
+      <%= form.text_field :content %>
+    </p>
+    <p><%= form.submit %></p>
+    <% end %>
   </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</body>

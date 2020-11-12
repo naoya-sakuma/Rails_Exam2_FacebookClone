@@ -9,17 +9,28 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <header>
+    <div class="common_outer">
+      <div class="common_inner">
     <% flash.each do |key, value| %>
       <%= content_tag(:div, value, class: "#{key}") %>
     <% end %>
     <% if logged_in? %>
-      <%= link_to "プロフィール", album_path(current_album.id) %>
-      <%= link_to "ログアウト", session_path(current_album.id), method: :delete %>
+      <button class="head" ><%= link_to "プロフィール", album_path(current_album.id) %></button>
+      <button class="head" ><%= link_to "ログアウト", session_path(current_album.id), method: :delete %></button>
     <% else %>
-      <%= link_to "サインアップ", new_album_path %>
-      <%= link_to "ログイン", new_session_path %>
+      <button class="head" ><%= link_to "サインアップ", new_album_path %></button>
+      <button class="head" ><%= link_to "ログイン", new_session_path %></button>
     <% end %>
-    <%= yield %>
-  </body>
+    </div>
+    </div>
+    <div>
+      <%= yield %>
+    </div>
+  </header>
+
+   <body>
+   </body>
+  <footer>
+  </footer>
 </html>

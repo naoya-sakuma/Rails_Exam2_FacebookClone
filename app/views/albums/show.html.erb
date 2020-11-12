@@ -1,4 +1,22 @@
-<h1><%= @album.name %>のページ</h1>
-<p>メールアドレス: <%= @album.email %></p>
-<%= link_to '投稿一覧へ', feeds_path %>
-<%= link_to '投稿する', new_feed_path %>
+<body class="profile_body">
+
+<table class="profile_table">
+<tr>
+  <th class="profile_th" colspan="2" >プロフィール</th>
+</tr>
+<tr>
+  <th class="profile_th">名前</th>
+  <th class="profile_th"><%= @album.name %></th>
+</tr>
+<tr>
+  <th class="profile_th">メールアドレス</th>
+  <th class="profile_th"><%= @album.email %></th>
+</tr>
+
+</table>
+
+<div class="profile_button">
+  <button class="profile_button"><%= link_to '投稿一覧へ', feeds_path %></button>
+  <button class="profile_button"><%= link_to '投稿する', new_feed_path %></button>
+</div>
+</body>

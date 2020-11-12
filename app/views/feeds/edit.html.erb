@@ -1,11 +1,4 @@
 <h1>編集ページ</h1>
-
-<p>現在の画像</p>
-<%= image_tag @feed.image.url %>
-<p>現在の投稿</p>
-<%= @feed.content %>
-
 <%= render 'form', feed: @feed %>
-
-<%= link_to '詳細', @feed %> |
-<%= link_to '一覧へ', feeds_path %>
+<button class= "feeds_edit_button" ><%= link_to '詳細', @feed %></button>
+<button class= "feeds_edit_button"><%= link_to '一覧', feeds_path %></button>

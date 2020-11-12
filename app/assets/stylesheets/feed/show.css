@@ -1,0 +1,19 @@
+.feed_show_h1 {
+  margin-left: 30px;
+  margin-bottom: 20px;
+}
+.feed_show_table {
+  margin-left: 30px;
+}
+.feed_show_th {
+  width: 100px;
+  height: 50px;
+}
+.feed_show_td {
+  width: 100px;
+  height: 50px;
+}
+.feed_show_bottun {
+  margin-top: 20px;
+  margin-left: 30px;
+}

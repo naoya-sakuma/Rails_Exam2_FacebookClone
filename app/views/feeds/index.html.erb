@@ -1,28 +1,22 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Feeds</h1>
+<h1 class="feed_index_h1">投稿一覧</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Image</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<table class="feed_index_table">
+  <tr>
+    <th class="feed_index_th">投稿画像</th>
+    <th class="feed_index_th">投稿内容</th>
+    <th class="feed_index_th">投稿者</th>
+  </tr>
     <% @feeds.each do |feed| %>
-      <tr>
-        <td><%= image_tag feed.image.url %></td>
-        <td><%= feed.content %></td>
-        <td><%= link_to '詳細', feed %></td>
-        <td><%= link_to '編集', edit_feed_path(feed) %></td>
-        <td><%= link_to '削除', feed, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+  <tr>
+    <td class="feed_index_td" ><%= image_tag feed.image.url %></td>
+    <td class="feed_index_td" ><%= feed.content %></td>
+    <td class="feed_index_td" ><%= feed.album.name %></td>
+    <td><button class="feed_index_button" ><%= link_to '詳細', feed %></button></td>
+    <td><button class="feed_index_button" ><%= link_to '編集', edit_feed_path(feed) %></button></td>
+    <td><button class="feed_index_button" ><%= link_to '削除', feed, method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
+  </tr>
     <% end %>
-  </tbody>
 </table>
-
-<br>
-
-<%= link_to '投稿する', new_feed_path %>
+<button class= "feed_index_button2" ><%= link_to '投稿する', new_feed_path %></button>
