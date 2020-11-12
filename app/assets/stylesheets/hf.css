@@ -2,17 +2,18 @@ html {
   position: relative;
   height: 700px;
 }
-.common_outer {
+header {
   position: relative;
   background-color: #305097;
   height: 100px;
 }
-.common_inner {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translateY(-50%) translateX(-50%);
-  -webkit- transform: translateY(-50%) translateX(-50%);
+
+.application_div {
+  height: 100px;
+  text-align: center;
+}
+.application_button {
+  margin-top: 35px;
 }
 footer {
   width: 100%;
