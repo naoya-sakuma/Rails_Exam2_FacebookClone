@@ -8,27 +8,23 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
-  <header>
-    <div class="application_div">
-    <% flash.each do |key, value| %>
-      <%= content_tag(:div, value, class: "#{key}") %>
-    <% end %>
-    <% if logged_in? %>
-      <button class="application_button" ><%= link_to "プロフィール", album_path(current_album.id) %></button>
-      <button class="application_button" ><%= link_to "ログアウト", session_path(current_album.id), method: :delete %></button>
-    <% else %>
-      <button class="application_button" ><%= link_to "サインアップ", new_album_path %></button>
-      <button class="application_button" ><%= link_to "ログイン", new_session_path %></button>
-    <% end %>
-    </div>
-    <div>
-      <%= yield %>
-    </div>
-  </header>
-
-   <body>
+  <body>
+    <header>
+      <div class="application_div">
+        <% flash.each do |key, value| %>
+          <%= content_tag(:div, value, class: "#{key}") %>
+        <% end %>
+        <% if logged_in? %>
+          <button class="application_button" ><%= link_to "プロフィール", album_path(current_album.id) %></button>
+          <button class="application_button" ><%= link_to "ログアウト", session_path(current_album.id), method: :delete %></button>
+        <% else %>
+          <button class="application_button" ><%= link_to "サインアップ", new_album_path %></button>
+          <button class="application_button" ><%= link_to "ログイン", new_session_path %></button>
+        <% end %>
+      </div>
+        <%= yield %>
+    </header>
+    <footer>
+    </footer>
    </body>
-  <footer>
-  </footer>
 </html>
