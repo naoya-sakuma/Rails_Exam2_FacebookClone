@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   end
   resources :sessions, only: [:new, :create, :destroy]
   resources :albums, only: [:new, :create, :show]
-  end
+  root to: "sessions#new"
+end
