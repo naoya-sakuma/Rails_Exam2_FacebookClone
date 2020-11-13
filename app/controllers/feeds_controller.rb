@@ -34,7 +34,6 @@ class FeedsController < ApplicationController
   end
 
   def confirm
-    #@feed = Feed.new(feed_params)
     @feed = current_album.feeds.build(feed_params)
     render :new if @feed.invalid?
   end
