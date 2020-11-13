@@ -1,25 +1,24 @@
 <div class="feed_form_body">
-<%= form_with(model: @feed, local: true ,url: choose_new_or_edit ) do |form| %>
-  <% if feed.errors.any? %>
+  <%= form_with(model: @feed, local: true ,url: choose_new_or_edit ) do |form| %>
+    <% if feed.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(feed.errors.count, "error") %> prohibited this feed from being saved:</h2>
-
       <ul>
-      <% feed.errors.full_messages.each do |message| %>
+        <% feed.errors.full_messages.each do |message| %>
         <li><%= message %></li>
-      <% end %>
+        <% end %>
       </ul>
-    </div>
+      </div>
   <% end %>
 
   <div class="field">
     <p class="feed_form_posted">
-      <%= (form.label :image, "現在の画像：") if @feed.image && @feed.image.url %>
+    <%= (form.label :image, "現在の画像：") if @feed.image && @feed.image.url %>
       <%= image_tag(@feed.image.url) if @feed.image && @feed.image.url %>
     </p>
     <p class="feed_form_posted">
       <%= (form.label :content, "現在の内容：") if @feed.content %>
-      <%= @feed.content %>
+        <%= @feed.content %>
     </p>
     <h3 class="feed_form_h3">新しい投稿内容</h3>
     <p class="feed_form_posting">
