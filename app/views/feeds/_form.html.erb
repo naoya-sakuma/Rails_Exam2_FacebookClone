@@ -1,4 +1,4 @@
-<body class="feed_form_body">
+<div class="feed_form_body">
 <%= form_with(model: @feed, local: true ,url: choose_new_or_edit ) do |form| %>
   <% if feed.errors.any? %>
     <div id="error_explanation">
@@ -33,4 +33,4 @@
     <p><%= form.submit %></p>
     <% end %>
   </div>
-</body>
+</div>
